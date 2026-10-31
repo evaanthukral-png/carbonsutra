@@ -1,19 +1,21 @@
-# CarbonSutra — Hyperlocal Air-Quality Forecasting
+# CarbonSutra — Neighbourhood Pollution Digital Twin
 
-> A decision-support platform that forecasts neighbourhood-level air pollution before, during, and after Diwali — so residents and local coordinators can act before exposure peaks.
+> A decision-support concept that lets residents explore how air pollution could change across neighbourhoods and time — before exposure peaks.
 
 ## Round 1 submission
 
 **Problem:** City-wide AQI averages hide meaningful street-to-street differences. During Diwali, fireworks, traffic, weather inversions, and local activity can push one neighbourhood into hazardous conditions while the city average appears manageable.
 
-**Our solution:** CarbonSutra combines historical pollution, weather, traffic intensity, and festival-event signals into a transparent forecast for each neighbourhood. It gives a 72-hour AQI outlook, pollutant breakdown, confidence, and practical health guidance.
+**Our solution:** CarbonSutra presents an interactive pollution digital twin: select a neighbourhood, move through the evening and next morning, and inspect AQI, sample pollutant proxies, peak time, potential drivers, and data-coverage state.
 
-### Why it stands out
+> **Demo integrity:** the current dashboard uses hand-authored synthetic fixtures. It does not use live observations, a trained model, or real confidence scores. The digital twin and forecasting pipeline are the proposed product direction.
 
-- **Neighbourhood, not just city level:** forecasts are tied to a selected locality.
-- **Event-aware AI:** a Diwali activity signal distinguishes a festival spike from normal seasonal pollution.
-- **Explainable forecasts:** users can see the leading drivers, not a black-box score.
-- **Actionable output:** health guidance changes with forecast severity and user profile.
+### Working feature — Pollution Digital Twin
+
+- **Interactive city map:** click Rohini, Saket, Dwarka or Noida to inspect a scenario.
+- **Time slider:** explore the scenario from 6 PM through the following morning.
+- **Neighbourhood details:** AQI, sample PM2.5/PM10 proxies and derived peak time update together.
+- **Coverage state:** a visible, deliberately unrated coverage indicator avoids false certainty.
 
 ## MVP scope
 
