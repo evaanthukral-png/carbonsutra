@@ -1,1 +1,240 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="CarbonSutra neighbourhood pollution digital twin concept."><title>CarbonSutra | Neighbourhood Digital Twin</title><link rel="stylesheet" href="styles.css"></head><body><main class="shell"><nav><a class="brand" href="#top"><span>◒</span> CarbonSutra</a><span class="status">Synthetic demo · offline</span></nav><header class="hero" id="top"><p class="eyebrow">NEIGHBOURHOOD POLLUTION DIGITAL TWIN</p><h1>See pollution move<br><em>before</em> it peaks.</h1><p class="lead">Explore a time-based, neighbourhood-level pollution scenario around Diwali. Select a zone, move the clock, and understand the projected exposure window.</p><p class="demo-notice"><strong>Round 1 concept demo.</strong> All readings, locations, drivers and confidence states are synthetic fixtures. No live monitoring, trained model, or notifications are connected.</p></header><section class="twin-layout" aria-label="Neighbourhood pollution digital twin"><article class="map-panel panel"><div class="panel-head"><div><p class="eyebrow">DELHI REGION · ILLUSTRATIVE</p><h2>Neighbourhood forecast map</h2></div><span class="legend"><i class="moderate"></i> Moderate <i class="poor"></i> Poor <i class="very-poor"></i> Very poor</span></div><div class="city-map" id="city-map" role="group" aria-label="Select a neighbourhood"></div><p class="map-note">Colours show the selected time step. This is a conceptual digital twin, not a geographic or sensor-coverage map.</p></article><aside class="details panel" aria-live="polite"><p class="eyebrow">SELECTED ZONE</p><h2 id="zone-name">Rohini</h2><p class="zone-subtitle">Synthetic scenario · illustrative monitoring coverage</p><div class="aqi-readout"><span>AQI</span><strong id="aqi">—</strong><b id="band">—</b></div><div class="pollutants"><div><span>PM2.5</span><strong id="pm25">—</strong><small>sample proxy µg/m³</small></div><div><span>PM10</span><strong id="pm10">—</strong><small>sample proxy µg/m³</small></div></div><dl><div><dt>Scenario peak</dt><dd id="peak">—</dd></div><div><dt>Peak time</dt><dd id="peak-time">—</dd></div><div><dt>Forecast confidence</dt><dd>Unrated</dd></div></dl><div class="coverage"><span>Monitoring coverage</span><div id="coverage-dots"></div><small>Illustrative coverage only — validation required</small></div></aside></section><section class="time-panel panel"><div class="panel-head"><div><p class="eyebrow">TIME EXPLORER · IST</p><h2 id="time-title">Saturday, 31 Oct · 6:00 PM</h2></div><span class="time-badge" id="time-badge">Forecast +6h</span></div><input id="time-slider" type="range" min="0" max="6" step="1" value="0" aria-label="Move through forecast times"><div class="time-stops" id="time-stops"></div><p class="callout" id="insight"></p></section><section class="lower-grid"><article class="panel forecast"><p class="eyebrow">SELECTED ZONE OUTLOOK</p><h2>24-hour AQI curve</h2><div class="chart-wrap"><div class="y-labels"><span>300</span><span>200</span><span>100</span><span>0</span></div><div class="chart" id="chart" aria-label="Synthetic AQI chart"></div></div><div class="hours" id="hours"></div></article><article class="panel drivers"><p class="eyebrow">WHY THIS WOULD MATTER</p><h2>Potential pollution drivers</h2><div id="driver-list"></div><p class="data-note">Driver labels are product-design examples. A deployed system would only show model attributions supported by validated source data.</p></article></section><footer>CarbonSutra · Round 1 concept · India CPCB AQI categories: Good, Satisfactory, Moderate, Poor, Very Poor, Severe</footer></main><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CarbonSutra neighbourhood pollution digital twin concept.">
+
+    <title>CarbonSutra | Neighbourhood Digital Twin</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main class="shell">
+
+        <nav>
+            <a class="brand" href="#top">
+                <span>◒</span> CarbonSutra
+            </a>
+
+            <span class="status">Synthetic demo · offline</span>
+        </nav>
+
+        <header class="hero" id="top">
+
+            <p class="eyebrow">NEIGHBOURHOOD POLLUTION DIGITAL TWIN</p>
+
+            <h1>
+                See pollution move<br>
+                <em>before</em> it peaks.
+            </h1>
+
+            <p class="lead">
+                Explore a time-based, neighbourhood-level pollution scenario around Diwali.
+                Select a zone, move the clock, and understand the projected exposure window.
+            </p>
+
+            <p class="demo-notice">
+                <strong>Round 1 concept demo.</strong>
+                All readings, locations, drivers and confidence states are synthetic fixtures.
+                No live monitoring, trained model, or notifications are connected.
+            </p>
+
+        </header>
+
+        <section class="twin-layout" aria-label="Neighbourhood pollution digital twin">
+
+            <article class="map-panel panel">
+
+                <div class="panel-head">
+
+                    <div>
+                        <p class="eyebrow">DELHI REGION · ILLUSTRATIVE</p>
+                        <h2>Neighbourhood forecast map</h2>
+                    </div>
+
+                    <span class="legend">
+                        <i class="moderate"></i> Moderate
+                        <i class="poor"></i> Poor
+                        <i class="very-poor"></i> Very poor
+                    </span>
+
+                </div>
+
+                <div
+                    class="city-map"
+                    id="city-map"
+                    role="group"
+                    aria-label="Select a neighbourhood">
+                </div>
+
+                <p class="map-note">
+                    Colours show the selected time step. This is a conceptual digital twin,
+                    not a geographic or sensor-coverage map.
+                </p>
+
+            </article>
+
+            <aside class="details panel" aria-live="polite">
+
+                <p class="eyebrow">SELECTED ZONE</p>
+
+                <h2 id="zone-name">Rohini</h2>
+
+                <p class="zone-subtitle">
+                    Synthetic scenario · illustrative monitoring coverage
+                </p>
+
+                <div class="aqi-readout">
+                    <span>AQI</span>
+                    <strong id="aqi">—</strong>
+                    <b id="band">—</b>
+                </div>
+
+                <div class="pollutants">
+
+                    <div>
+                        <span>PM2.5</span>
+                        <strong id="pm25">—</strong>
+                        <small>sample proxy µg/m³</small>
+                    </div>
+
+                    <div>
+                        <span>PM10</span>
+                        <strong id="pm10">—</strong>
+                        <small>sample proxy µg/m³</small>
+                    </div>
+
+                </div>
+
+                <dl>
+
+                    <div>
+                        <dt>Scenario peak</dt>
+                        <dd id="peak">—</dd>
+                    </div>
+
+                    <div>
+                        <dt>Peak time</dt>
+                        <dd id="peak-time">—</dd>
+                    </div>
+
+                    <div>
+                        <dt>Forecast confidence</dt>
+                        <dd>Unrated</dd>
+                    </div>
+
+                </dl>
+
+                <div class="coverage">
+
+                    <span>Monitoring coverage</span>
+
+                    <div id="coverage-dots"></div>
+
+                    <small>
+                        Illustrative coverage only — validation required
+                    </small>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+        <section class="time-panel panel">
+
+            <div class="panel-head">
+
+                <div>
+                    <p class="eyebrow">TIME EXPLORER · IST</p>
+
+                    <h2 id="time-title">
+                        Saturday, 31 Oct · 6:00 PM
+                    </h2>
+                </div>
+
+                <span class="time-badge" id="time-badge">
+                    Forecast +6h
+                </span>
+
+            </div>
+
+            <input
+                id="time-slider"
+                type="range"
+                min="0"
+                max="6"
+                step="1"
+                value="0"
+                aria-label="Move through forecast times"
+            >
+
+            <div class="time-stops" id="time-stops"></div>
+
+            <p class="callout" id="insight"></p>
+
+        </section>
+
+        <section class="lower-grid">
+
+            <article class="panel forecast">
+
+                <p class="eyebrow">SELECTED ZONE OUTLOOK</p>
+
+                <h2>24-hour AQI curve</h2>
+
+                <div class="chart-wrap">
+
+                    <div class="y-labels">
+                        <span>300</span>
+                        <span>200</span>
+                        <span>100</span>
+                        <span>0</span>
+                    </div>
+
+                    <div
+                        class="chart"
+                        id="chart"
+                        aria-label="Synthetic AQI chart">
+                    </div>
+
+                </div>
+
+                <div class="hours" id="hours"></div>
+
+            </article>
+
+            <article class="panel drivers">
+
+                <p class="eyebrow">WHY THIS WOULD MATTER</p>
+
+                <h2>Potential pollution drivers</h2>
+
+                <div id="driver-list"></div>
+
+                <p class="data-note">
+                    Driver labels are product-design examples. A deployed system would
+                    only show model attributions supported by validated source data.
+                </p>
+
+            </article>
+
+        </section>
+
+        <footer>
+            CarbonSutra · Round 1 concept · India CPCB AQI categories:
+            Good, Satisfactory, Moderate, Poor, Very Poor, Severe
+        </footer>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
