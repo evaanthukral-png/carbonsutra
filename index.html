@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CarbonSutra neighbourhood air-quality forecast demo" />
+    <title>CarbonSutra | Air, anticipated.</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <nav><a class="brand" href="#top"><span>◒</span> CarbonSutra</a><span class="status"><i></i> Forecast engine online</span></nav>
+      <section class="hero" id="top">
+        <p class="eyebrow">HYPERLOCAL · EXPLAINABLE · EVENT-AWARE</p>
+        <h1>Know the air <em>before</em> it changes.</h1>
+        <p class="lead">A neighbourhood-level early-warning system for Diwali air pollution—turning data into time to act.</p>
+        <div class="location-row"><label for="locality">Forecasting for</label><select id="locality"><option value="Rohini">Rohini, Delhi</option><option value="Saket">Saket, Delhi</option><option value="Dwarka">Dwarka, Delhi</option><option value="Noida">Sector 62, Noida</option></select><button id="refresh">Refresh forecast ↻</button></div>
+      </section>
+      <section class="overview" aria-label="Current air quality">
+        <article class="aqi-card"><p>Current AQI <span id="updated">updated now</span></p><div class="aqi-number" id="aqi">186</div><div class="band" id="band">UNHEALTHY</div><p class="muted">Sensitive groups should reduce prolonged outdoor exertion.</p></article>
+        <article class="metric"><p>PM2.5</p><strong id="pm25">98</strong><small>µg/m³ · dominant pollutant</small></article>
+        <article class="metric"><p>Peak forecast</p><strong id="peak">248</strong><small>AQI · tonight, 10 PM</small></article>
+        <article class="metric"><p>Model confidence</p><strong id="confidence">82%</strong><small>Based on 4 signal groups</small></article>
+      </section>
+      <section class="grid">
+        <article class="panel forecast"><div class="panel-head"><div><p class="eyebrow">NEXT 24 HOURS</p><h2>Pollution outlook</h2></div><span class="legend"><b></b> AQI forecast</span></div><div class="chart-wrap"><div class="y-labels"><span>300</span><span>200</span><span>100</span><span>0</span></div><div class="chart" id="chart"></div></div><div class="hours" id="hours"></div><p class="callout" id="callout">Expected rise after sunset as low wind and festive activity trap pollutants near the surface.</p></article>
+        <aside class="panel drivers"><p class="eyebrow">FORECAST EXPLAINED</p><h2>What is driving the spike?</h2><div id="driver-list"></div><div class="data-note">Demo model uses representative inputs. Live version will display source timestamps and real-time confidence.</div></aside>
+      </section>
+      <section class="action panel"><div><p class="eyebrow">PERSONAL ACTION WINDOW</p><h2>Act before 8:00 PM</h2><p>Air quality is projected to worsen by <strong id="change">33%</strong>. Move outdoor plans earlier, close windows before the peak, and use an N95 if travel is essential.</p></div><button id="alert">Enable peak alert</button></section>
+      <footer>CarbonSutra · Round 1 concept demo · Built for Root Access Hackathon</footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
